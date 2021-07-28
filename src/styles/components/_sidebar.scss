@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 117px;
+  background-color: black;
+  img{
+      padding-bottom: 20px;
+      cursor: pointer;
+  }
+
+  .copyright{
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: #ffffff;
+    padding-top:164px;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+  }
+}
