@@ -4,6 +4,8 @@ import Navigation from '../components/Navigation';
 import Nutriment from '../components/Nutriment';
 import SidebarIcons from '../components/SidebarIcons';
 import Hello from '../components/Hello';
+import RadarPerformance from '../components/RadarPerformance';
+import RadialScore from '../components/RadialScore';
 
 
 const DashBoard = () => {
@@ -14,6 +16,8 @@ const DashBoard = () => {
             <SidebarIcons/>
             <DayliesActivity/>
             <Nutriment/>
+            <RadarPerformance/>
+            <RadialScore/>
         </div>
     );
 };

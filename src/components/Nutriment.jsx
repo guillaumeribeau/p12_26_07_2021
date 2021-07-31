@@ -11,8 +11,8 @@ const Nutriment = () => {
   if (loading) {
     return <div>Chargement...</div>;
   }
-  console.log(dataNutriment);
 
+  console.log(dataNutriment)
   return (
     <div className="nutriment_container">
       <div className="nutriment">
