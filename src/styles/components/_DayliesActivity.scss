@@ -2,14 +2,14 @@
   position: absolute;
   left: 150px;
   top: 325px;
-  width: 635px;
+  background: #fbfbfb;
+  width: 835px;
   height: 320px;
-  background-color: #fbfbfb;
   border-radius: 5px;
+  padding: 30px 15px;
+  margin-bottom: 28px;
 
   h2 {
-    margin: 0px 0 64px 32px;
-    padding-top: 24px;
     font-family: Roboto;
     font-size: 15px;
     font-style: normal;
@@ -18,5 +18,35 @@
     letter-spacing: 0px;
     text-align: left;
     color: #20253a;
+    margin-bottom: 30px;
+  }
+  .units {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-elt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    color: #74798c;
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+  .round_calorie {
+    background: #e60000;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+  .round_poids {
+    background: #282d30;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin: 0 10px;
   }
 }
