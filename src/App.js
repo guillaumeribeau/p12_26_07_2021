@@ -1,15 +1,26 @@
 
 import './styles/index.scss';
-import { BrowserRouter } from 'react-router-dom';
+import {Switch, Route, Router } from 'react-router-dom';
+import {createBrowserHistory } from 'history';
 import DashBoard from './pages/DashBoard';
 import FetchDating from './components/FetchDating';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
+ const history = createBrowserHistory()
   return (
-    <BrowserRouter>
+    <>
     <FetchDating/>
-   <DashBoard/>
-    </BrowserRouter>
+   
+     <Router history= {history} >
+     <Switch>
+    <Route path='/:id' render= {(props)=> <DashBoard{...props }/>}/>
+    <Route path='*' component={<ErrorPage/>}/>
+    </Switch>
+     </Router>
+
+ 
+</>
   );
 
 }

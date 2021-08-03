@@ -12,9 +12,12 @@ import {
 } from "recharts";
 import useFetch from "./FetchDating";
 import TooltipsActivity from "./TooltipsActivity";
+import { useLocation, useParams } from "react-router-dom";
 
 const DayliesActivity = () => {
-  const [loading, items] = useFetch("http://localhost:3000/user/12/activity");
+
+const {id} = useParams()
+const [loading, items] = useFetch(`http://localhost:3000/user/${id}/activity`);
 
   if (loading) {
     return <div>Chargement...</div>;

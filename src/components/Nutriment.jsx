@@ -4,21 +4,23 @@ import carbs from "../assets/carbs-icon.svg";
 import fat from "../assets/fat-icon.svg";
 import protein from "../assets/protein-icon.svg";
 import useFetch from "./FetchDating";
+import {useParams} from "react-router-dom"
 
 const Nutriment = () => {
-  const [loading, dataNutriment] = useFetch("http://localhost:3000/user/12");
+  const {id} = useParams()
+  const [loading, dataNutriment] = useFetch(`http://localhost:3000/user/${id}`);
 
   if (loading) {
     return <div>Chargement...</div>;
   }
-
+ 
   console.log(dataNutriment)
   return (
     <div className="nutriment_container">
       <div className="nutriment">
         <img src={calories} alt="" />
         <div>
-          <h2>{dataNutriment.data.keyData.calorieCount}kCal</h2>
+          <h2>{dataNutriment.data.keyData.calorieCount}C</h2>
           <h3>Calories</h3>
         </div>
       </div>
