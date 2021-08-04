@@ -16,11 +16,10 @@ if (loading){
 }
 
 
-console.log(dataPerformance)
 
     return (
         <div>
-            <RadarChart outerRadius={90} width={730} height={250} data={dataPerformance&& dataPerformance.data}>
+            <RadarChart outerRadius={90} width={190} height={250} data={dataPerformance&& dataPerformance.data}>
   <PolarGrid />
   <PolarAngleAxis dataKey="subject" />
   <PolarRadiusAxis angle={30} domain={[0, 150]} />

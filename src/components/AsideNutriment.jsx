@@ -6,7 +6,7 @@ import protein from "../assets/protein-icon.svg";
 import useFetch from "./FetchDating";
 import {useParams} from "react-router-dom"
 
-const Nutriment = () => {
+const AsideNutriment = () => {
   const {id} = useParams()
   const [loading, dataNutriment] = useFetch(`http://localhost:3000/user/${id}`);
 
@@ -14,7 +14,7 @@ const Nutriment = () => {
     return <div>Chargement...</div>;
   }
  
-  console.log(dataNutriment)
+  
   return (
     <div className="nutriment_container">
       <div className="nutriment">
@@ -52,4 +52,4 @@ const Nutriment = () => {
   );
 };
 
-export default Nutriment;
+export default AsideNutriment;

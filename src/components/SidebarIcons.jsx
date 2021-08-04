@@ -6,6 +6,7 @@ import fitness from "../assets/fitness.svg";
 
 const SidebarIcons = () => {
   return (
+    <div className="aside_container">
     <aside className="sidebar">
       <img src={yoga} alt="yoga icons" />
       <img src={swim} alt="swim icons" />
@@ -13,6 +14,7 @@ const SidebarIcons = () => {
       <img src={fitness} alt="fitness icons" />
       <span className="copyright">Copyright, SportSee 2020</span>
     </aside>
+    </div>
   );
 };
 

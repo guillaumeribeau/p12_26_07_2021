@@ -1,43 +1,49 @@
-.nutriment_container {
-  position: absolute;
-  top: 325px;
-  right: 20px;
-}
 
+.nutriment_container{
+  margin-top: 50px;
+}
 .nutriment {
-  position: relative;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   height: 124px;
-  width: 258px;
+  width: 208px;
   margin-bottom: 39px;
+
+
+  margin-right: 30px;
+  margin-left:20px;
   border-radius: 5px;
   background-color: #fbfbfb;
   box-shadow: 0px 2px 4px 0px #00000005;
 
   img {
-    position: absolute;
-    left: 32px;
+ 
+    
+    padding-right:15px; 
   }
 
   h2 {
+    
     font-family: Roboto;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: 0px;
-    margin-left: 24px;
+    margin-right: 15px;
+   
   }
 
   h3 {
+ 
     font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0px;
-    padding-left: 24px;
+ 
   }
 }

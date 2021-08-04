@@ -22,7 +22,7 @@ const [loading, items] = useFetch(`http://localhost:3000/user/${id}/activity`);
   if (loading) {
     return <div>Chargement...</div>;
   }
-  console.log(items);
+ 
 
   let kilogramsArray = [];
   let caloriesArray = [];
