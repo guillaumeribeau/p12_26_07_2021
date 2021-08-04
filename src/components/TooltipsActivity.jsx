@@ -6,8 +6,8 @@ const TooltipsActivity = (props) => {
   if (active && payload) {
     return (
       <div className='tooltips_activity'>
-        <span>{`${payload[0].value}kg`}</span>
-        <span>{`${payload[1].value}kcal`}</span>
+        <span>{`${payload[0].value}kcal`}</span>
+        <span>{`${payload[1].value}kg`}</span>
       </div>
     );
   }

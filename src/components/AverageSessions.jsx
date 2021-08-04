@@ -134,7 +134,7 @@ const AverageSessions = () => {
             }}
           />
      
-          {/* <Line hide='true' type="monotone" dataKey="day" stroke="#82ca9d" /> */}
+          
         </LineChart>
       </ResponsiveContainer>
     </div>

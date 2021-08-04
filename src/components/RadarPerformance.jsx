@@ -1,34 +1,89 @@
-import React from 'react';
-import {PolarRadiusAxis,PolarGrid, PolarAngleAxis, Radar, Legend, RadarChart,ResponsiveContainer} from 'recharts'
-import useFetch from './FetchDating';
+import React from "react";
+import { useParams } from "react-router-dom";
+import {
+  PolarRadiusAxis,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar,
+  Legend,
+  RadarChart,
+  ResponsiveContainer,
+} from "recharts";
+import useFetch from "./FetchDating";
 
+const displayIntensityPerformance = (data) => {
+  let value = "";
+  switch (data.kind) {
+    case 1:
+      value = "Cardio";
 
+      break;
+    case 2:
+      value = "Energie";
 
+      break;
+    case 3:
+      value = "Endurance";
 
+      break;
+    case 4:
+      value = "Force";
 
+      break;
+    case 5:
+      value = "Vitesse";
 
-const RadarPerformance = () => {
+      break;
 
-const [loading, dataPerformance]= useFetch('http://localhost:3000/user/12/performance')
+    case 6:
+      value = "Intensité";
 
-if (loading){
-    <div>Chargement...</div>
-}
+      break;
 
-
-
-    return (
-        <div className='radar_performance_container'>
-            <RadarChart outerRadius={90} width={190} height={250} data={dataPerformance&& dataPerformance.data}>
-  <PolarGrid />
-  <PolarAngleAxis dataKey="subject" />
-  <PolarRadiusAxis angle={30} domain={[0, 150]} />
-  <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-   
-  <Legend />
-</RadarChart>
-        </div>
-    );
+    default:
+      value = "";
+  }
+  return value;
 };
 
-export default RadarPerformance
+const RadarPerformance = () => {
+  const { id } = useParams();
+  const [loading, dataPerformance] = useFetch(
+    `http://localhost:3000/user/${id}/performance`
+  );
+
+  if (loading) {
+    <div>Chargement...</div>;
+  }
+
+  return (
+    <div className="radar_performance_container">
+      {dataPerformance && (
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart
+            cx="50%"
+            cy="50%"
+            outerRadius="55%"
+            data={dataPerformance.data}
+          >
+            <PolarGrid />
+            <PolarAngleAxis
+              dataKey={displayIntensityPerformance}
+              stroke="#fff"
+              tickLine={false}
+              tick={{ fontSize: 10 }}
+            />
+            <Radar
+              dataKey="value"
+              stroke="#ff0101"
+              fill="#ff0101"
+              fillOpacity={0.7}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
+      )}
+    </div>
+  );
+};
+
+export default RadarPerformance;
