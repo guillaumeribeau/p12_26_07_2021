@@ -21,7 +21,7 @@ const RadialScore = () => {
   ];
 
   return (
-    <div>  </div>
+    <div className='radar_score_container'>  </div>
   );
 };
 

@@ -18,7 +18,7 @@ if (loading){
 
 
     return (
-        <div>
+        <div className='radar_performance_container'>
             <RadarChart outerRadius={90} width={190} height={250} data={dataPerformance&& dataPerformance.data}>
   <PolarGrid />
   <PolarAngleAxis dataKey="subject" />

@@ -23,7 +23,7 @@ const DashBoard = () => {
             <RadialScore />
           </div>
         </div>
-          <AsideNutriment/>
+        <AsideNutriment />
         <div />
       </div>
     </div>
