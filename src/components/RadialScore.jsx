@@ -1,27 +1,60 @@
 import React from "react";
 import useFetch from "./FetchDating";
 import { PieChart, Pie, Label, Cell, ResponsiveContainer } from "recharts";
+import CustomLabelScore from "./CustomLabelScore";
+import {useParams} from "react-router-dom"
+
 
 const RadialScore = () => {
-  const [loading, dataScore] = useFetch("http://localhost:3000/user/12");
+  const {id}= useParams();
+  const [loading, dataScore] = useFetch(`http://localhost:3000/user/${id}`);
 
   if (loading) {
-    <div>Chargement...</div>;
+   return <div>Chargement...</div>;
   }
 
-  //console.log(dataScore.data.todayScore*100)
-
-  // const data = [{
-  //   score: dataScore.data.todayScore*100 }]
-
-  const data = [
-    {
-      score: 12,
-    },
-  ];
+  
+console.log(dataScore)
+ const data= [
+    { value: dataScore.data.todayScore},
+    { value: 1 - dataScore.data.todayScore},
+  ]
 
   return (
-    <div className='radar_score_container'>  </div>
+    
+<div className='radar_score_container'>  
+    <h2>Score</h2>
+    <ResponsiveContainer width="100%" height="80%">
+          <PieChart width={250} height={180}>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              dataKey="value"
+              innerRadius={70}
+              outerRadius={80}
+            >
+              {data.map((entry, index) => {
+                if (index === 1) {
+                  return (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill="#fbfbfb"
+                      stroke-linecap="round"
+                     
+                    />
+                  );
+                }
+                return <Cell key={`cell-${index}`} fill="#ff0000" />;
+              })}
+              <Label
+                content={<CustomLabelScore value={data[0] && data[0].value} />}
+                position="center"
+              />
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+    </div>
   );
 };
 

@@ -53,7 +53,7 @@ const RadarPerformance = () => {
   );
 
   if (loading) {
-    <div>Chargement...</div>;
+   return <div>Chargement...</div>;
   }
 
   return (
@@ -64,7 +64,7 @@ const RadarPerformance = () => {
             cx="50%"
             cy="50%"
             outerRadius="55%"
-            data={dataPerformance.data}
+            data={dataPerformance.data.data}
           >
             <PolarGrid />
             <PolarAngleAxis

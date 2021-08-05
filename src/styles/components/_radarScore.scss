@@ -1,7 +1,23 @@
 .radar_score_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 31%;
   height: 263px;
   border-radius: 5px;
   background: #fbfbfb;
   box-shadow: 0px 2px 4px 0px #00000005;
+
+  h2 {
+    position: absolute;
+    left: 30px;
+    top: 24px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
 }
