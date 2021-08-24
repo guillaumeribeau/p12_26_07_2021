@@ -4,19 +4,17 @@ import { PieChart, Pie, Label, Cell, ResponsiveContainer } from "recharts";
 import CustomRadialScore from "./CustomRadialScore";
 import { useParams } from "react-router-dom";
 
-
 const RadialScore = () => {
   const { id } = useParams();
   const [loading, dataScore] = useFetch(`http://localhost:3000/user/${id}`);
- 
 
   if (loading) {
     return <div className="lds-dual-ring"></div>;
   }
 
   const data = [
-    { value: dataScore.data.todayScore },
-    { value: 1 - dataScore.data.todayScore },
+    { value: dataScore.data.todayScore || dataScore.data.score },
+    { value: 1 - dataScore.data.todayScore || 1 - dataScore.data.score  },
   ];
 
   return (
@@ -31,6 +29,8 @@ const RadialScore = () => {
             dataKey="value"
             innerRadius={70}
             outerRadius={80}
+            startAngle={180}
+            endAngle={-360}
           >
             {data.map((entry, index) => {
               if (index === 1) {
