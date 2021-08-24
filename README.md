@@ -1,17 +1,17 @@
 
-**Build a user profile page in React, fetching data from a NodeJS external server.
+**Build a user profile page in React, fetching data from a NodeJS external server**
 
-**Dependencies
+**Dependencies**
 
-*React v17.0.2
+React v17.0.2
 
-*recharts v2.0.10
+recharts v2.0.10
 
-*react-router-dom v5.2.0
+react-router-dom v5.2.0
 
-*prop-types v15.7.2
+prop-types v15.7.2
 
-**Recommended text editor: Visual Studio Code
+**Recommended text editor: Visual Studio Code**
 
 Installation Dependencies
 
@@ -31,7 +31,7 @@ Run the project (port 3006 by default)
 npm start
 
 **To get the backend API, fork this repo and follow the instructions
-Backend API
+Backend API**
 https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
 The 2 URL available (for the 2 users) are:
