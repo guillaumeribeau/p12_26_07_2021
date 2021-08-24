@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import useFetch from "./FetchDating";
+import ErrorMessage from "./ErrorMessage";
 
 const displayIntensityPerformance = (data) => {
   let value = "";
@@ -51,9 +52,13 @@ const RadarPerformance = () => {
   const [loading, dataPerformance] = useFetch(
     `http://localhost:3000/user/${id}/performance`
   );
+  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
 
+  if (error) {
+    return <ErrorMessage/>
+  }
   if (loading) {
-   return <div>Chargement...</div>;
+    return <div className='lds-dual-ring'></div>;
   }
 
   return (

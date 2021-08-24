@@ -1,16 +1,20 @@
 import React from "react";
 import useFetch from "./FetchDating";
 import { PieChart, Pie, Label, Cell, ResponsiveContainer } from "recharts";
-import CustomLabelScore from "./CustomLabelScore";
+import CustomRadialScore from "./CustomRadialScore";
 import {useParams} from "react-router-dom"
-
+import ErrorMessage from "./ErrorMessage";
 
 const RadialScore = () => {
   const {id}= useParams();
   const [loading, dataScore] = useFetch(`http://localhost:3000/user/${id}`);
+  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
 
+  if (error) {
+    return <ErrorMessage/>
+  }
   if (loading) {
-   return <div>Chargement...</div>;
+    return <div className='lds-dual-ring'></div>;
   }
 
   
@@ -48,7 +52,7 @@ console.log(dataScore)
                 return <Cell key={`cell-${index}`} fill="#ff0000" />;
               })}
               <Label
-                content={<CustomLabelScore value={data[0] && data[0].value} />}
+                content={<CustomRadialScore value={data[0] && data[0].value} />}
                 position="center"
               />
             </Pie>

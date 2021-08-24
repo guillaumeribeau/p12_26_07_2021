@@ -3,18 +3,24 @@ import calories from "../assets/calories-icon.svg";
 import carbs from "../assets/carbs-icon.svg";
 import fat from "../assets/fat-icon.svg";
 import protein from "../assets/protein-icon.svg";
+import ErrorMessage from "./ErrorMessage";
 import useFetch from "./FetchDating";
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 const AsideNutriment = () => {
-  const {id} = useParams()
+  const { id } = useParams();
   const [loading, dataNutriment] = useFetch(`http://localhost:3000/user/${id}`);
 
-  if (loading) {
-    return <div>Chargement...</div>;
+  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
+
+  if (error) {
+    return <ErrorMessage/>
   }
- 
-  
+
+  if (loading) {
+    return <div className="lds-dual-ring"></div>;
+  }
+
   return (
     <div className="nutriment_container">
       <div className="nutriment">

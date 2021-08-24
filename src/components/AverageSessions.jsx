@@ -8,41 +8,12 @@ import {
   Legend,
   Line,
   ResponsiveContainer,
-  } from "recharts";
+} from "recharts";
 import useFetch from "./FetchDating";
+import ErrorMessage from "./ErrorMessage";
 import { useLocation, useParams } from "react-router-dom";
 import TooltipsAverage from "./TooltipsAverage";
 
-const sessions = [
-  {
-    day: 1,
-    sessionLength: 30,
-  },
-  {
-    day: 2,
-    sessionLength: 23,
-  },
-  {
-    day: 3,
-    sessionLength: 45,
-  },
-  {
-    day: 4,
-    sessionLength: 50,
-  },
-  {
-    day: 5,
-    sessionLength: 0,
-  },
-  {
-    day: 6,
-    sessionLength: 0,
-  },
-  {
-    day: 7,
-    sessionLength: 60,
-  },
-];
 const transformAxisX = (data) => {
   let value = "";
   switch (data.day) {
@@ -78,9 +49,13 @@ const AverageSessions = () => {
   const [loading, averageData] = useFetch(
     `http://localhost:3000/user/${id}/average-sessions`
   );
+  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
+  if (error) {
+    return <ErrorMessage/>
+  }
 
   if (loading) {
-    return <div>Chargement...</div>;
+    return <div className="lds-dual-ring"></div>;
   }
 
   let sessionArray = [];
@@ -116,8 +91,6 @@ const AverageSessions = () => {
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 12 }}
-            
-           
           />
           <YAxis hide={true} domain={[minY, maxY]} />
           <Tooltip content={<TooltipsAverage />} cursor={{ fill: "#FFFFFF" }} />
@@ -133,8 +106,6 @@ const AverageSessions = () => {
               r: 5,
             }}
           />
-     
-          
         </LineChart>
       </ResponsiveContainer>
     </div>

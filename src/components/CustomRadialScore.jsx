@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomLabelScore = (props) => {
+const CustomRadialScore = (props) => {
   const { value, viewBox } = props;
   const { cx, cy } = viewBox;
   
@@ -46,4 +46,4 @@ const CustomLabelScore = (props) => {
   );
 };
 
-export default CustomLabelScore;
+export default CustomRadialScore;

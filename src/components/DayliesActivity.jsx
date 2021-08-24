@@ -13,16 +13,21 @@ import {
 import useFetch from "./FetchDating";
 import TooltipsActivity from "./TooltipsActivity";
 import { useLocation, useParams } from "react-router-dom";
+import ErrorMessage from "./ErrorMessage";
 
 const DayliesActivity = () => {
+  const { id } = useParams();
+  const [loading, items] = useFetch(
+    `http://localhost:3000/user/${id}/activity`
+  );
+  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
 
-const {id} = useParams()
-const [loading, items] = useFetch(`http://localhost:3000/user/${id}/activity`);
-
-  if (loading) {
-    return <div>Chargement...</div>;
+  if (error) {
+    return <ErrorMessage/>
   }
- 
+  if (loading) {
+    return <div className="lds-dual-ring"></div>;
+  }
 
   let kilogramsArray = [];
   let caloriesArray = [];
