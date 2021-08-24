@@ -1,6 +1,6 @@
 Build a user profile page in React, fetching data from a NodeJS external server.
 
-Dependencies
+**Dependencies**
 
 React v17.0.2
 
@@ -12,7 +12,7 @@ prop-types v15.7.2
 
 Recommended text editor: Visual Studio Code
 
-Installation Dependencies
+**Installation Dependencies**
 
 You need Git to clone the repository
 
@@ -26,6 +26,7 @@ Install the packages npm i
 
 Run the project (port 3006 by default) npm start
 
-To get the backend API, fork this repo and follow the instructions Backend API https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+**To get the backend API, fork this repo and follow the instructions Backend API**
+ https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
 The 2 URL available (for the 2 users) are: http://localhost:3006/12 http://localhost:3006/18
