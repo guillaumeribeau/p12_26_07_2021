@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-
 function useFetch(url) {
   const [state, setState] = useState({
     items: [],
     loading: true,
-    error: null,
   });
 
   useEffect(
@@ -19,11 +17,11 @@ function useFetch(url) {
             loading: false,
           });
         } else {
+          console.log("error");
           alert(JSON.stingify(responseData));
           setState({
             items: [],
             loading: false,
-            error: true,
           });
         }
       })();
@@ -31,7 +29,7 @@ function useFetch(url) {
     [url]
   );
 
-  return [state.loading, state.items, state.error];
+  return [state.loading, state.items];
 }
 
 export default useFetch;

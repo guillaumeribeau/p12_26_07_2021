@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import useFetch from "./FetchDating";
-import ErrorMessage from "./ErrorMessage";
+
 import { useLocation, useParams } from "react-router-dom";
 import TooltipsAverage from "./TooltipsAverage";
 
@@ -49,11 +49,7 @@ const AverageSessions = () => {
   const [loading, averageData] = useFetch(
     `http://localhost:3000/user/${id}/average-sessions`
   );
-  const [error] = useFetch(`http://localhost:3000/user/${id}/average-sessions`);
-  if (error) {
-    return <ErrorMessage/>
-  }
-
+ 
   if (loading) {
     return <div className="lds-dual-ring"></div>;
   }
