@@ -14,7 +14,7 @@ const RadialScore = () => {
 
   const data = [
     { value: dataScore.data.todayScore || dataScore.data.score },
-    { value: 1 - dataScore.data.todayScore || 1 - dataScore.data.score  },
+    { value: 1 - dataScore.data.todayScore || 1 - dataScore.data.score },
   ];
 
   return (

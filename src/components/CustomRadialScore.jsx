@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const CustomRadialScore = (props) => {
   const { value, viewBox } = props;
   const { cx, cy } = viewBox;
-  
+
   return (
     <React.Fragment>
       <text x={cx - 25} y={cy - 5}>
@@ -47,3 +48,8 @@ const CustomRadialScore = (props) => {
 };
 
 export default CustomRadialScore;
+
+CustomRadialScore.propTypes = {
+  value: PropTypes.number.isRequired,
+  viewBox: PropTypes.number.isRequired,
+};

@@ -1,15 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {
-  PolarRadiusAxis,
+  
   PolarGrid,
   PolarAngleAxis,
   Radar,
-  Legend,
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
 import useFetch from "./FetchDating";
+
+
+ /**
+   * Change the value of performance data
+   * @param   {object}  data the fetched data from API
+   * @return  {string}  The label to display
+   */
 
 const displayIntensityPerformance = (data) => {
   let value = "";
@@ -87,3 +93,5 @@ const RadarPerformance = () => {
 };
 
 export default RadarPerformance;
+
+

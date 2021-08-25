@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 const TooltipsAverage = (props) => {
   const { payload, active } = props;
@@ -16,3 +17,9 @@ const TooltipsAverage = (props) => {
 };
 
 export default TooltipsAverage
+
+TooltipsAverage.PropTypes={
+
+  payload: PropTypes.number,
+  active: PropTypes.bool
+}

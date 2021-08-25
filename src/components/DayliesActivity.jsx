@@ -5,23 +5,19 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   Bar,
   ResponsiveContainer,
-  Area,
 } from "recharts";
 import useFetch from "./FetchDating";
 import TooltipsActivity from "./TooltipsActivity";
-import { useLocation, useParams } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 
 const DayliesActivity = () => {
   const { id } = useParams();
   const [loading, items] = useFetch(
     `http://localhost:3000/user/${id}/activity`
   );
-  
-  
+
   if (loading) {
     return <div className="lds-dual-ring"></div>;
   }

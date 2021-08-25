@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 
+
+
+ /**
+   * Hooks for fetch data
+   * @param   {string}  url the backend url for data access
+   * @return  {string}  The state
+   */
+
+
 function useFetch(url) {
   const [state, setState] = useState({
     items: [],

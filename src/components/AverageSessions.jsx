@@ -5,14 +5,19 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   Line,
   ResponsiveContainer,
 } from "recharts";
 import useFetch from "./FetchDating";
-
-import { useLocation, useParams } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import TooltipsAverage from "./TooltipsAverage";
+
+
+ /**
+   * Change the label on the Axis
+   * @param   {object}  data the fetched data from API
+   * @return  {string}  The label to display
+   */
 
 const transformAxisX = (data) => {
   let value = "";
