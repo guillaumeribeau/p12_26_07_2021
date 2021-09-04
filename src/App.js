@@ -3,14 +3,14 @@ import './styles/index.scss';
 import {Switch, Route, Router } from 'react-router-dom';
 import {createBrowserHistory } from 'history';
 import DashBoard from './pages/DashBoard';
-import FetchDating from './components/FetchDating';
+import FetchData from './components/FetchData';
 import ErrorMessage from './components/ErrorMessage';
 
 function App() {
  const history = createBrowserHistory()
   return (
     <>
-    <FetchDating/>
+    <FetchData/>
    
      <Router history= {history} >
      <Switch>

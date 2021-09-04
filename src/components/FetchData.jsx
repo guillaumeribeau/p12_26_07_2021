@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-
-
- /**
-   * Hooks for fetch data
-   * @param   {string}  url the backend url for data access
-   * @return  {string}  The state
-   */
-
+/**
+ * Hooks for fetch data
+ * @param   {string}  url the backend url for data access
+ * @return  {string}  The state
+ */
 
 function useFetch(url) {
   const [state, setState] = useState({
@@ -26,8 +23,7 @@ function useFetch(url) {
             loading: false,
           });
         } else {
-          console.log("error");
-          alert(JSON.stingify(responseData));
+          console.error(response.status)
           setState({
             items: [],
             loading: false,
@@ -37,8 +33,12 @@ function useFetch(url) {
     },
     [url]
   );
-
+   
+ 
   return [state.loading, state.items];
+
+  
+  
 }
 
 export default useFetch;

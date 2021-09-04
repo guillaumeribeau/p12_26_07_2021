@@ -1,21 +1,18 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import {
-  
   PolarGrid,
   PolarAngleAxis,
   Radar,
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import useFetch from "./FetchDating";
+import PropTypes from "prop-types";
 
-
- /**
-   * Change the value of performance data
-   * @param   {object}  data the fetched data from API
-   * @return  {string}  The label to display
-   */
+/**
+ * Change the value of performance data
+ * @param   {object}  data the fetched data from API
+ * @return  {string}  The label to display
+ */
 
 const displayIntensityPerformance = (data) => {
   let value = "";
@@ -52,16 +49,7 @@ const displayIntensityPerformance = (data) => {
   return value;
 };
 
-const RadarPerformance = () => {
-  const { id } = useParams();
-  const [loading, dataPerformance] = useFetch(
-    `http://localhost:3000/user/${id}/performance`
-  );
-
-  if (loading) {
-    return <div className="lds-dual-ring"></div>;
-  }
-
+const RadarPerformance = ({ dataPerformance, dataPerformanceValue }) => {
   return (
     <div className="radar_performance_container">
       {dataPerformance && (
@@ -70,7 +58,7 @@ const RadarPerformance = () => {
             cx="50%"
             cy="50%"
             outerRadius="55%"
-            data={dataPerformance.data.data}
+            data={dataPerformanceValue}
           >
             <PolarGrid />
             <PolarAngleAxis
@@ -94,4 +82,7 @@ const RadarPerformance = () => {
 
 export default RadarPerformance;
 
-
+RadarPerformance.prototype = {
+  dataPerformance: PropTypes.object.isRequired,
+  dataPerformanceValue: PropTypes.array.isRequired,
+};

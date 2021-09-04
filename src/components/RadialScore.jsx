@@ -1,20 +1,12 @@
 import React from "react";
-import useFetch from "./FetchDating";
 import { PieChart, Pie, Label, Cell, ResponsiveContainer } from "recharts";
 import CustomRadialScore from "./CustomRadialScore";
-import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const RadialScore = () => {
-  const { id } = useParams();
-  const [loading, dataScore] = useFetch(`http://localhost:3000/user/${id}`);
-
-  if (loading) {
-    return <div className="lds-dual-ring"></div>;
-  }
-
+const RadialScore = ({ dataScore, dataScore2 }) => {
   const data = [
-    { value: dataScore.data.todayScore || dataScore.data.score },
-    { value: 1 - dataScore.data.todayScore || 1 - dataScore.data.score },
+    { value: dataScore || dataScore2 },
+    { value: 1 - dataScore || 1 - dataScore2 },
   ];
 
   return (
@@ -56,3 +48,8 @@ const RadialScore = () => {
 };
 
 export default RadialScore;
+
+RadialScore.prototype = {
+  dataScore: PropTypes.number.isRequired,
+  dataScore2: PropTypes.number.isRequired,
+};

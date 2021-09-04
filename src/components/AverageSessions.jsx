@@ -8,16 +8,14 @@ import {
   Line,
   ResponsiveContainer,
 } from "recharts";
-import useFetch from "./FetchDating";
-import {useParams} from "react-router-dom";
 import TooltipsAverage from "./TooltipsAverage";
+import PropTypes from "prop-types";
 
-
- /**
-   * Change the label on the Axis
-   * @param   {object}  data the fetched data from API
-   * @return  {string}  The label to display
-   */
+/**
+ * Change the label on the Axis
+ * @param   {object}  data the fetched data from API
+ * @return  {string}  The label to display
+ */
 
 const transformAxisX = (data) => {
   let value = "";
@@ -49,22 +47,13 @@ const transformAxisX = (data) => {
   return value;
 };
 
-const AverageSessions = () => {
-  const { id } = useParams();
-  const [loading, averageData] = useFetch(
-    `http://localhost:3000/user/${id}/average-sessions`
-  );
- 
-  if (loading) {
-    return <div className="lds-dual-ring"></div>;
-  }
-
+const AverageSessions = ({ averageSessions }) => {
   let sessionArray = [];
   let minY = 0;
   let maxY = 0;
 
-  if (averageData) {
-    sessionArray = averageData.data.sessions.map((elt) => elt.sessionLength);
+  if (AverageSessions) {
+    sessionArray = averageSessions.map((elt) => elt.sessionLength);
     minY = Math.min(...sessionArray) / 2;
     maxY = Math.max(...sessionArray) * 2;
   }
@@ -78,7 +67,7 @@ const AverageSessions = () => {
         <LineChart
           width={258}
           height={263}
-          data={averageData.data.sessions}
+          data={averageSessions}
           margin={{ top: 5, right: 15, left: 15, bottom: 5 }}
         >
           <CartesianGrid
@@ -114,3 +103,7 @@ const AverageSessions = () => {
 };
 
 export default AverageSessions;
+
+AverageSessions.propTypes = {
+  averageSessions: PropTypes.array.isRequired,
+};

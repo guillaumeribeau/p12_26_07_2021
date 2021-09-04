@@ -8,20 +8,10 @@ import {
   Bar,
   ResponsiveContainer,
 } from "recharts";
-import useFetch from "./FetchDating";
 import TooltipsActivity from "./TooltipsActivity";
-import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const DayliesActivity = () => {
-  const { id } = useParams();
-  const [loading, items] = useFetch(
-    `http://localhost:3000/user/${id}/activity`
-  );
-
-  if (loading) {
-    return <div className="lds-dual-ring"></div>;
-  }
-
+const DayliesActivity = ({ dayliesActivity }) => {
   let kilogramsArray = [];
   let caloriesArray = [];
   let minYKilo = 0;
@@ -29,12 +19,12 @@ const DayliesActivity = () => {
   let minYCal = 0;
   let maxYCal = 0;
 
-  if (items.data.sessions) {
-    kilogramsArray = items.data.sessions.map((elt) => elt.kilogram);
+  if (dayliesActivity) {
+    kilogramsArray = dayliesActivity.map((elt) => elt.kilogram);
     minYKilo = Math.min(...kilogramsArray) - 1;
     maxYKilo = Math.max(...kilogramsArray) + 1;
 
-    caloriesArray = items.data.sessions.map((elt) => elt.calories);
+    caloriesArray = dayliesActivity.map((elt) => elt.calories);
     minYCal = Math.min(...caloriesArray) - 10;
     maxYCal = Math.max(...caloriesArray) + 10;
   }
@@ -58,7 +48,7 @@ const DayliesActivity = () => {
           barGap={8}
           barCategoryGap={54}
           radius={5}
-          data={items.data.sessions}
+          data={dayliesActivity}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis
@@ -86,3 +76,7 @@ const DayliesActivity = () => {
 };
 
 export default DayliesActivity;
+
+DayliesActivity.propTypes = {
+  dayliesActivity: PropTypes.array.isRequired,
+};

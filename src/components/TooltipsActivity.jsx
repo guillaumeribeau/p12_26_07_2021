@@ -18,6 +18,6 @@ const TooltipsActivity = (props) => {
 
 export default TooltipsActivity;
 
-TooltipsActivity.PropTypes = {
-  payload: PropTypes.number,
+TooltipsActivity.propTypes = {
+  payload: PropTypes.number.isRequired,
 };
