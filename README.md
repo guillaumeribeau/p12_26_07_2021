@@ -2,6 +2,7 @@
 Sportsee is an application for monitoring your physical activity. Project 12 of the OpenClassrooms "Front End Developer" course. For this project I'm using Javascript, React, recharts.js in a statically typed functional paradigm.
 
 
+![Capture d’écran 2021-11-04 à 14 56 11](https://user-images.githubusercontent.com/77536090/140326608-838e411e-97f7-4c6e-8776-b4fe57dc0c31.png)
 
 
 
