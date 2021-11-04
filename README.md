@@ -1,3 +1,12 @@
+# Projet 12 SportSee
+Sportsee is an application for monitoring your physical activity. Project 12 of the OpenClassrooms "Front End Developer" course. For this project I'm using Javascript, React, recharts.js in a statically typed functional paradigm.
+
+
+
+
+
+
+
 Build a user profile page in React, fetching data from a NodeJS external server.
 
 **Dependencies**
